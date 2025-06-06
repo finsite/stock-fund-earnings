@@ -1,19 +1,20 @@
-# Changelog
+## v0.1.0 (2025-06-06)
 
-All notable changes to this project will be documented in this file.
+### Fix
 
-The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
+- **files**: Verify changelog
+- **files**: Verify functionality
 
-## v0.2.1 (2025-06-06)
+## v0.2.0 (2025-06-05)
+
+### Feat
+
+- **sync**: add full sync_if_needed.py script with logging and Makefile support
 
 ### Fix
 
 - **files**: Verify functionality
-- **files**: Verify functionality
+- **deps**: recompile requirements to resolve dependency conflicts
+- **files**: Address workflows timing out issues
 
-## [v0.2.0] - 2025-06-06
-
-### Added
-
-- Initial project structure cloned from `template_python`
-- Custom configuration and module setup for `stock-fund-earnings`
+## v0.0.0 (2025-06-04)

@@ -1,1 +1,5 @@
-__version__ = "0.2.1"
+"""stock-fund-earnings
+
+Auto-generated init file with version."""
+
+__version__ = "0.1.0"
