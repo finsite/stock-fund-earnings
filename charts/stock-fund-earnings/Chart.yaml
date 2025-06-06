@@ -4,4 +4,4 @@ name: stock-fund-earnings
 description: A Helm chart for stock-fund-earnings
 type: application
 version: 0.1.0
-appVersion: "1.0"
+appVersion: '1.0'

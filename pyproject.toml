@@ -108,11 +108,7 @@ skip_covered = true
 
 [tool.commitizen]
 name = "cz_conventional_commits"
-<<<<<<< HEAD
-version = "v0.0.0"
-=======
-version = "0.2.0"
->>>>>>> 802eb4638e3e0c6b8d485be98485303f0f4e9d08
+version = "0.2.1"
 tag_format = "v$version"
 update_changelog_on_bump = true
 changelog_file = "CHANGELOG.md"
