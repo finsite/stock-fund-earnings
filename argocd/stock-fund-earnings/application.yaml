@@ -11,7 +11,8 @@ spec:
     targetRevision: main
     path: charts/stock-fund-earnings
     helm:
-      valueFiles: [values.yaml]
+      valueFiles:
+        - values.yaml
   destination:
     server: https://kubernetes.default.svc
     namespace: default
