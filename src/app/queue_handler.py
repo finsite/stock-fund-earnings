@@ -4,7 +4,7 @@ import json
 import signal
 import threading
 import time
-from typing import Callable
+from collections.abc import Callable
 
 import boto3
 import pika
@@ -56,8 +56,7 @@ def _start_rabbitmq_listener(callback: Callable[[list[dict]], None]) -> None:
             port=config.get_rabbitmq_port(),
             virtual_host=config.get_rabbitmq_vhost(),
             credentials=pika.PlainCredentials(
-                config.get_rabbitmq_user(),
-                config.get_rabbitmq_password()
+                config.get_rabbitmq_user(), config.get_rabbitmq_password()
             ),
         )
     )
