@@ -1,8 +1,8 @@
 """Module to handle output of analysis results to the configured target.
 
-Supports logging, stdout, queue publishing, and future extensibility
-to REST, S3, or database sinks. Includes retry logic, validation,
-and optional metrics integration.
+Supports logging, stdout, queue publishing, and future extensibility to
+REST, S3, or database sinks. Includes retry logic, validation, and
+optional metrics integration.
 """
 
 import json
@@ -26,6 +26,7 @@ def send_to_output(data: list[dict[str, Any]]) -> None:
 
     Args:
         data (list[dict[str, Any]]): A list of enriched messages to route.
+
     """
     try:
         validate_list_of_dicts(data, required_keys=["text"])
@@ -56,6 +57,7 @@ def _output_to_log(data: list[dict[str, Any]]) -> None:
 
     Args:
         data (list[dict[str, Any]]): List of dictionaries to log.
+
     """
     for item in data:
         logger.info("📝 Processed message:\n%s", json.dumps(item, indent=4))
@@ -66,6 +68,7 @@ def _output_to_stdout(data: list[dict[str, Any]]) -> None:
 
     Args:
         data (list[dict[str, Any]]): List of dictionaries to print.
+
     """
     for item in data:
         print(json.dumps(item, indent=4))
@@ -77,6 +80,7 @@ def _output_to_queue(data: list[dict[str, Any]]) -> None:
 
     Args:
         data (list[dict[str, Any]]): List of dictionaries to publish.
+
     """
     publish_to_queue(data)
     logger.info("✅ Output published to queue: %d message(s)", len(data))
@@ -88,6 +92,7 @@ def _output_to_rest(data: list[dict[str, Any]]) -> None:
 
     Args:
         data (list[dict[str, Any]]): List of dictionaries to send.
+
     """
     logger.warning("⚠️ Output mode 'rest' not yet implemented.")
     record_metric("output_rest_skipped", len(data))
@@ -98,6 +103,7 @@ def _output_to_s3(data: list[dict[str, Any]]) -> None:
 
     Args:
         data (list[dict[str, Any]]): List of dictionaries to upload.
+
     """
     logger.warning("⚠️ Output mode 's3' not yet implemented.")
     record_metric("output_s3_skipped", len(data))
@@ -108,16 +114,19 @@ def _output_to_database(data: list[dict[str, Any]]) -> None:
 
     Args:
         data (list[dict[str, Any]]): List of dictionaries to write.
+
     """
     logger.warning("⚠️ Output mode 'database' not yet implemented.")
     record_metric("output_db_skipped", len(data))
 
 
 def record_metric(name: str, value: int) -> None:
-    """Record a named metric (placeholder for Prometheus or CloudWatch integration).
+    """Record a named metric (placeholder for Prometheus or CloudWatch
+    integration).
 
     Args:
         name (str): Metric name.
         value (int): Metric value.
+
     """
     logger.debug("📊 Metric: %s = %d", name, value)
