@@ -1,0 +1,22 @@
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: stock-fund-earnings
+  labels:
+    app: stock-fund-earnings
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: stock-fund-earnings
+  template:
+    metadata:
+      labels:
+        app: stock-fund-earnings
+    spec:
+      containers:
+      - name: stock-fund-earnings
+        image: stock-fund-earnings:latest
+        ports:
+        - containerPort: 8080
