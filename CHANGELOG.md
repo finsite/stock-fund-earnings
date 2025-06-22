@@ -7,6 +7,12 @@
 - Initial project structure cloned from `template_python`
 - Custom configuration and module setup for `stock-fund-earnings`
 
+## v0.3.0 (2025-06-22)
+
+### Feat
+
+- **utils**: finalize shared utility modules and tests
+
 ## v0.2.0 (2025-06-16)
 
 ### Feat
